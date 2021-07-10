@@ -12,10 +12,10 @@ export class UserService {
   constructor(private httpCleint: HttpClient) {}
 
   registerUser(data: Register): Observable<any> {
-    return this.httpCleint.post('/api/users/register', data, headerData);
+    return this.httpCleint.post('/api/users/register', data);
   }
 
   login(data: any): Observable<any> {
-    return this.httpCleint.post('/api/users/login', data, headerData);
+    return this.httpCleint.post('/api/users/login', data);
   }
 }
