@@ -8,5 +8,9 @@
 <div *ngIf="profile != null">
   Hello from profile
   <app-dashboard-action></app-dashboard-action>
-  exp details edu details
+  <app-display-exp-details [exp]="profile.experience"></app-display-exp-details>
+  <app-display-edu-details
+    [education]="profile.education"
+  ></app-display-edu-details>
+  edu details
 </div>

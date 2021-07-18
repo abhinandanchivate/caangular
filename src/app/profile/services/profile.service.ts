@@ -18,4 +18,8 @@ export class ProfileService {
   createProfile(profile: Profile): Observable<any> {
     return this.httpClient.post(this.api, profile);
   }
+
+  deleteExperience(id: string): Observable<any> {
+    return this.httpClient.delete(this.api + '/experience/' + id);
+  }
 }

@@ -1,1 +1,28 @@
-<p>display-edu-details works!</p>
+<div>
+  <h4 class="mb-2">Education Credentials</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>School</th>
+        <th>Degree</th>
+        <th>Years</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of education">
+        <td>{{ e.school }}</td>
+        <td>{{ e.degree }}</td>
+        <td>
+          {{ e.from | date: "dd-MMM-yyyy" }} - {{ e.to | date: "dd-MMM-yyyy" }}
+        </td>
+        <td>
+          <button class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-bottom: 60px">
+    <button class="btn btn-danger">Delete My Account</button>
+  </div>
+</div>

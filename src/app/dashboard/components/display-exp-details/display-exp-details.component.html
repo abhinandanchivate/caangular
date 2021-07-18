@@ -1,1 +1,26 @@
-<p>display-exp-details works!</p>
+<div>
+  <h4 class="mb-2">Experience Credentials</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Title</th>
+        <th>Years</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of exp">
+        <td>{{ e.company }}</td>
+        <td>{{ e.title }}</td>
+        <td>
+          {{ e.from | date: "dd-MMM-yyyy" }} - {{ e.to | date: "dd-MMM-yyyy" }}
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteExp(e._id)">
+            Delete {{ e._id }}
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

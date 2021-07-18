@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProfileService } from 'src/app/profile/services/profile.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class DashboardComponent implements OnInit {
   profile: any = {};
   error: any = {};
   username: string;
-  constructor(private profileService: ProfileService) {}
+  constructor(private profileService: ProfileService, private router: Router) {}
 
   ngOnInit(): void {
     this.username = JSON.parse(localStorage.getItem('userDetails')).name;
@@ -25,6 +26,9 @@ export class DashboardComponent implements OnInit {
         this.profile = null;
         console.log(JSON.stringify(err.error));
         this.error.noprofile = err.error.noprofile;
+        if (err.error.status == '401') {
+          this.router.navigate(['/user/login']);
+        }
       }
     );
   }
