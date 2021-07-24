@@ -8,9 +8,18 @@
 <div *ngIf="profile != null">
   Hello from profile
   <app-dashboard-action></app-dashboard-action>
-  <app-display-exp-details [exp]="profile.experience"></app-display-exp-details>
+  <app-display-exp-details
+    [exp]="profile.experience"
+    (deleteExp)="deleteExp($event)"
+  ></app-display-exp-details>
   <app-display-edu-details
     [education]="profile.education"
   ></app-display-edu-details>
   edu details
+
+  <div style="margin-bottom: 60px">
+    <button class="btn btn-danger" (click)="deleteProfile()">
+      Delete My Account
+    </button>
+  </div>
 </div>

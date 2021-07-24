@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { ProfileService } from 'src/app/profile/services/profile.service';
 
 @Component({
@@ -10,18 +11,15 @@ import { ProfileService } from 'src/app/profile/services/profile.service';
 export class DisplayExpDetailsComponent implements OnInit {
   @Input()
   exp: any[] = [];
+  @Output('deleteExp')
+  expIdValue: EventEmitter<string> = new EventEmitter<string>();
   constructor(private profileService: ProfileService, private router: Router) {}
 
   ngOnInit(): void {
     console.log(JSON.stringify(this.exp));
   }
-  deleteExp(id: string) {
+  deleteExperience(id: string) {
     console.log(id);
-    this.profileService.deleteExperience(id).subscribe(
-      (res) => {
-        this.router.navigate(['/dashboard']);
-      },
-      (err) => {}
-    );
+    this.expIdValue.emit(id);
   }
 }

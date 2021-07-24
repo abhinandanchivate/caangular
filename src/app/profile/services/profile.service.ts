@@ -22,4 +22,10 @@ export class ProfileService {
   deleteExperience(id: string): Observable<any> {
     return this.httpClient.delete(this.api + '/experience/' + id);
   }
+  deleteProfile(): Observable<any> {
+    return this.httpClient.delete(this.api);
+  }
+  getProfiles(): Observable<any> {
+    return this.httpClient.get(this.api + '/all');
+  }
 }

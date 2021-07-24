@@ -32,4 +32,26 @@ export class DashboardComponent implements OnInit {
       }
     );
   }
+
+  deleteExp($event) {
+    console.log('inside the dashboard deleteExp');
+    let count = $event;
+    console.log('recieved value' + $event);
+    this.profileService.deleteExperience($event).subscribe(
+      (res) => {
+        this.profile = res;
+      },
+      (err) => {}
+    );
+  }
+
+  deleteProfile() {
+    // it should hit the rest api
+    this.profileService.deleteProfile().subscribe((res) => {
+      // it should clear localstorage
+      localStorage.clear();
+      // it should take you to LandingComponent.
+      this.router.navigate(['']);
+    });
+  }
 }
