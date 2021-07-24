@@ -8,11 +8,22 @@
               >Back To Profiles</a
             >
           </div>
-          <div class="col-6"></div>
+          <div class="col-6">{{ profile | json }}</div>
         </div>
-        <app-profile-header></app-profile-header>
-        <app-profile-about></app-profile-about>
-        <app-profile-creds></app-profile-creds>
+        <app-profile-header
+          [name]="profile.user.name"
+          [company]="profile.company"
+          [status]="profile.status"
+          [location]="profile.location"
+        ></app-profile-header>
+        <app-profile-about
+          [bio]="profile.bio"
+          [skills]="profile.skills"
+        ></app-profile-about>
+        <app-profile-creds
+          [exp]="profile.experience"
+          [edu]="profile.education"
+        ></app-profile-creds>
         <app-profile-github></app-profile-github>
       </div>
     </div>

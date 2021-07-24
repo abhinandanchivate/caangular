@@ -19,10 +19,15 @@
 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/user/register">Sign Up</a>
+          <a class="nav-link" routerLink="/user/register" *ngIf="!flag"
+            >Sign Up</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/user/login">Login</a>
+          <a class="nav-link" routerLink="/user/login" *ngIf="!flag">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="" *ngIf="flag">Logout</a>
         </li>
       </ul>
     </div>

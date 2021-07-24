@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-profile-creds',
   templateUrl: './profile-creds.component.html',
-  styleUrls: ['./profile-creds.component.css']
+  styleUrls: ['./profile-creds.component.css'],
 })
 export class ProfileCredsComponent implements OnInit {
+  @Input()
+  exp: any;
 
-  constructor() { }
+  @Input()
+  edu: any;
 
-  ngOnInit(): void {
-  }
+  constructor() {}
 
+  ngOnInit(): void {}
 }

@@ -28,4 +28,8 @@ export class ProfileService {
   getProfiles(): Observable<any> {
     return this.httpClient.get(this.api + '/all');
   }
+
+  getProfileDetailsByUserId(userId: string): Observable<any> {
+    return this.httpClient.get('api/profile/user/' + userId);
+  }
 }

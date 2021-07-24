@@ -11,7 +11,11 @@
       <h3>{{ profile.user.name }}</h3>
       <p>{{ profile.status }} at {{ profile.company }}</p>
       <p>{{ profile.location }}</p>
-      <a href="profile.html" class="btn btn-info">View Profile</a>
+      <a
+        [routerLink]="['/profile/display-profile', profile.user._id]"
+        class="btn btn-info"
+        >View Profile</a
+      >
     </div>
     <div class="col-md-4 d-none d-lg-block">
       <h4>Skill Set</h4>

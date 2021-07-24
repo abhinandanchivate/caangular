@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import jwt_decode from 'jwt-decode';
+import { SubjectService } from 'src/app/shared/services/subject.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,7 +11,11 @@ import jwt_decode from 'jwt-decode';
 export class LoginComponent implements OnInit {
   login: any = {};
   error: any = {};
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private subjectService: SubjectService
+  ) {}
 
   ngOnInit(): void {}
   loginSubmit() {
@@ -23,6 +28,8 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('userDetails', JSON.stringify(decodedValue));
         // can we store the decoded value in LS?
 
+        // set the login flag
+        this.subjectService.loginSubject.next(true);
         // to shift our user to dashboard page.
         this.router.navigate(['/dashboard/']);
       },
