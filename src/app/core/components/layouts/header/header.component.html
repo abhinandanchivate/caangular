@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
   <div class="container">
-    <a class="navbar-brand" routerLink="/">DevConnector</a>
+    <a class="navbar-brand" routerLink="{{ !flag ? [''] : ['/dashboard'] }}"
+      >DevConnector{{ flag }}</a
+    >
     <button
       class="navbar-toggler"
       type="button"
@@ -27,7 +29,9 @@
           <a class="nav-link" routerLink="/user/login" *ngIf="!flag">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="" *ngIf="flag">Logout</a>
+          <a class="nav-link" routerLink="" *ngIf="flag" (click)="logout()"
+            >Logout</a
+          >
         </li>
       </ul>
     </div>
